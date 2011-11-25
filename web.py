@@ -1,3 +1,18 @@
+# This file is part of pythonshark.
+#
+# pythonshark is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# pythonshark is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with pythonshark.  If not, see <http://www.gnu.org/licenses/>.
+
 import flask
 import shark
 import thread
@@ -19,8 +34,8 @@ song_cache = {}
 
 s = None
 
-m = mpd.MPDClient()
-m.connect("localhost", 6600)
+#m = mpd.MPDClient()
+#m.connect("localhost", 6600)
 
 @app.route("/")
 def root():
@@ -28,7 +43,7 @@ def root():
     data += "Song download queue:<br /><br />"
     for song in download_queue:
         data += "(%s) %s - %s<br />" % ("DL" if not song[1] else "DL&Q", song[0].name, song[0].artist)
-    
+
     data += '<br />Song search: <form action="/search" type="GET"><input name="song" /><input type="submit"></form>'
     return data
 
@@ -63,9 +78,9 @@ def worker():
                 song = d[0]
                 should_queue = d[1]
                 dl_data = song.get_download_data()
-                
+
                 global download_status
-                
+
                 r = urllib2.Request(dl_data[0], dl_data[1])
                 h = urllib2.urlopen(r)
                 headers = h.info()
@@ -77,7 +92,7 @@ def worker():
                 done = 0
                 while 1:
                     download_status = "Downloading %s - %s.mp3...% 4i/% 4ikb (% 3i%%) " % (song.artist, song.name, done/1024, size/1024, done * 100.0/size)
-                    
+
                     block = h.read(8096)
                     if block == "":
                         break
