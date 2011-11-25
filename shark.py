@@ -179,7 +179,7 @@ class GroovesharkClient(object):
                 if fail_on_token:
                     raise Exception("Could not get communication token!")
                 print "[i] Communication token expired, sleeping."
-                get_communication_token()
+                self.get_communication_token()
                 return run_method(self, method, parameters, client, True)
             else:
                 raise Exception("Could not parse fault! %s" % str(fault))
