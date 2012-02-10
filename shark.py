@@ -218,7 +218,9 @@ class GroovesharkClient(object):
 if __name__ == "__main__":
     c = GroovesharkClient()
     c.connect()
-    songs = c.search_songs("catgroove")
+    print "Enter song name: "
+    name = raw_input()
+    songs = c.search_songs(name)
     for song in songs:
         print song.name, song.artist, song.album, song.score
 

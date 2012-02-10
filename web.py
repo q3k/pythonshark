@@ -20,7 +20,7 @@ import time
 import collections
 import urllib
 import urllib2
-import mpd
+#import mpd
 import os
 
 import config
@@ -101,15 +101,6 @@ def worker():
                 os.chmod("%s/%s/%s - %s.mp3" % (config.MPD_DIR, config.DL_DIR, song.artist, song.name), 0777)
                 if should_queue:
                     download_status = "Queued %s - %s.mp3 to MPD..." % (song.artist, song.name)
-                    try:
-                        m.update("%s/%s - %s.mp3" % (config.DL_DIR, song.artist, song.name))
-                        time.sleep(10)
-	                m.add("%s/%s - %s.mp3" % (config.DL_DIR, song.artist, song.name))
-                    except Exception as e:
-                        time.sleep(10)
-                        m.add("%s/%s - %s.mp3" % (config.DL_DIR, song.artist, song.name))
-                        print "COULD NOT QUEUE '%s/%s - %s.mp3': %s" % (config.DL_DIR, song.artist, song.name, e)
-                    m.play()
                 else:
                     download_status = "Done downloading."
         time.sleep(2)

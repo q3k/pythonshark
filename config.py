@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with pythonshark.  If not, see <http://www.gnu.org/licenses/>.
 
-MPD_DIR = "/nas/Music"
+MPD_DIR = "/home/q3k/gsmusic"
 DL_DIR = "Grooveshark Music"
 
 USERAGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.106 Safari/535.2"
@@ -43,10 +43,10 @@ COUNTRY_DATA = {
 
 CLIENT_REVISION = "20110906"
 
-REFERER = "http://grooveshark.com/JSQueue.swf?20111111.113"
-ORIGIN = "http://grooveshark.com"
+REFERER = "https://grooveshark.com/JSQueue.swf?20111111.113"
+ORIGIN = "https://grooveshark.com"
 
-JSONURL = "http://grooveshark.com/more.php?%s"
+JSONURL = "https://grooveshark.com/more.php?%s"
 
 TOKEN_ALTERNATIVE = [
     "getQueueSongListFromSongIDs",
