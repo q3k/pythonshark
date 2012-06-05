@@ -3,9 +3,9 @@ A very arseholish API to talk to Grooveshark servers in Python.
 Do not use. Well, if you have to, here's some info about the files:
     o README - this file
     o shark.py - main Grooveshark Client module, with example usage in the main function
-    o config.py - some constacts needed for Grooveshark connectivity, and some other per-user config (like web.py targets)
-    o web.py - a very badly named, Flask-based, MPD-queuing example use of the pythonshak library
+    o config.py - some constants needed for Grooveshark connectivity, and some other per-user config (like web.py targets)
+    o web.py - a very badly named, Flask-based, MPD-queuing example use of the pythonshark library
 
-Remember, if you use this, you can, and probably will get IP-banned by the Grooveshark servers, as you WILL be breakin their ToS. Just sayin'.
+Remember, if you use this, you can, and probably will get IP-banned by the Grooveshark servers, as you WILL be breaking their ToS. Just sayin'.
 
 ~ Sergiusz 'q3k' Bazanski, q3k@q3k.org, http://q3k.org
